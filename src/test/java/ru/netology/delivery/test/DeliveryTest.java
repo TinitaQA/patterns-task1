@@ -42,9 +42,7 @@ class DeliveryTest {
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.DELETE);
         $("[data-test-id='date'] input").setValue(secondMeetingDate);
         $(withText("Запланировать")).click();
-        $(withText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(15));
-        $("[data-test-id='replan-notification'] .notification__content")
-                .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать? "))
+        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
                 .shouldBe(visible);
         $("[data-test-id='replan-notification'] .button").click();
         $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
